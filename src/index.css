@@ -1,0 +1,76 @@
+@import "tailwindcss";
+@import "prismjs/themes/prism-tomorrow.css";
+
+@source "../node_modules/readyui-react/dist/*.js";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --color-primary: #3b82f6;
+  --color-primary-dark: #2563eb;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  @apply bg-white dark:bg-zinc-950 text-gray-900 dark:text-gray-100 antialiased;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { @apply bg-gray-300 dark:bg-zinc-700 rounded-full; }
+
+/* Prism code block overrides */
+pre[class*="language-"] {
+  border-radius: 0;
+  margin: 0 !important;
+  padding: 1rem 1.25rem !important;
+  font-size: 0.8125rem !important;
+  line-height: 1.75 !important;
+  background: #1e1e2e !important;
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+code[class*="language-"] {
+  font-size: 0.8125rem !important;
+  line-height: 1.75 !important;
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+.dark pre[class*="language-"],
+.dark code[class*="language-"] {
+  background: #1e1e2e !important;
+}
+
+/* Reset any inline code from inheriting Prism dark bg */
+:not(pre) > code {
+  background: none !important;
+  color: inherit !important;
+  padding: 0 !important;
+  font-size: inherit !important;
+}
+
+/* Accordion focus ring should follow the parent's rounded corners */
+[id^="accordion-btn-"] {
+  border-radius: inherit;
+}
+
+/* ProfileCard: ensure avatar overlaps the cover gradient */
+.flex.justify-center.-mt-10 {
+  position: relative;
+  z-index: 10;
+}
