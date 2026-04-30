@@ -51,7 +51,7 @@ const SpinnerPage = lazy(() => import("./pages/components/SpinnerPage"));
 const SpotlightCardPage = lazy(() => import("./pages/components/SpotlightCardPage"));
 const StepperPage = lazy(() => import("./pages/components/StepperPage"));
 const TabsPage = lazy(() => import("./pages/components/TabsPage"));
-const TimeLinePage = lazy(() => import("./pages/components/TimeLinePage"));
+const TimeLinePage = lazy(() => import("./pages/components/TimelinePage"));
 const ToastPage = lazy(() => import("./pages/components/ToastPage"));
 const ToggleSwitchPage = lazy(() => import("./pages/components/ToggleSwitchPage"));
 const TooltipPage = lazy(() => import("./pages/components/TooltipPage"));
