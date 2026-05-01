@@ -29,7 +29,7 @@ export default function GettingStarted() {
         </p>
         <CodeBlock
           language="bash"
-          code={`npm install react react-dom tailwindcss lucide-react`}
+          code={`npm install react react-dom lucide-react`}
         />
         <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-zinc-700">
           <table className="w-full text-sm">
@@ -37,15 +37,36 @@ export default function GettingStarted() {
               <tr className="bg-gray-50 dark:bg-zinc-800/50 border-b border-gray-200 dark:border-zinc-700">
                 <th className="text-left px-4 py-2.5 font-semibold">Package</th>
                 <th className="text-left px-4 py-2.5 font-semibold">Version</th>
+                <th className="text-left px-4 py-2.5 font-semibold">Note</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100 dark:divide-zinc-800">
-              <tr><td className="px-4 py-2.5">react</td><td className="px-4 py-2.5">≥ 18</td></tr>
-              <tr><td className="px-4 py-2.5">react-dom</td><td className="px-4 py-2.5">≥ 18</td></tr>
-              <tr><td className="px-4 py-2.5">tailwindcss</td><td className="px-4 py-2.5">≥ 4.0</td></tr>
-              <tr><td className="px-4 py-2.5">lucide-react</td><td className="px-4 py-2.5">≥ 0.400</td></tr>
+              <tr><td className="px-4 py-2.5">react</td><td className="px-4 py-2.5">≥ 18</td><td className="px-4 py-2.5">Required</td></tr>
+              <tr><td className="px-4 py-2.5">react-dom</td><td className="px-4 py-2.5">≥ 18</td><td className="px-4 py-2.5">Required</td></tr>
+              <tr><td className="px-4 py-2.5">lucide-react</td><td className="px-4 py-2.5">≥ 0.400</td><td className="px-4 py-2.5">Required</td></tr>
+              <tr><td className="px-4 py-2.5">tailwindcss</td><td className="px-4 py-2.5">≥ 4.0</td><td className="px-4 py-2.5">Optional — only if you skip the pre-built CSS</td></tr>
             </tbody>
           </table>
+        </div>
+      </section>
+
+      {/* Import Styles */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold">Import Styles</h2>
+        <p className="text-gray-600 dark:text-gray-400">
+          ReadyUI ships a pre-built CSS bundle with all the Tailwind classes and custom keyframes needed by the components.
+          Import it once in your app entry point (e.g.{" "}
+          <code className="text-sm bg-gray-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded">main.jsx</code> or{" "}
+          <code className="text-sm bg-gray-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded">App.jsx</code>):
+        </p>
+        <CodeBlock code={`import "readyui-react/styles.css";`} />
+        <div className="p-4 rounded-xl bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800/50">
+          <p className="text-sm text-blue-800 dark:text-blue-300">
+            <strong>Already using Tailwind CSS v4?</strong> You can skip the pre-built CSS and instead add a{" "}
+            <code className="text-xs bg-blue-100 dark:bg-blue-900/50 px-1 py-0.5 rounded">@source</code>{" "}
+            directive in your CSS to let Tailwind scan the library's classes:
+          </p>
+          <CodeBlock code={`/* In your main CSS file */\n@source "../node_modules/readyui-react/dist/*.js";`} />
         </div>
       </section>
 

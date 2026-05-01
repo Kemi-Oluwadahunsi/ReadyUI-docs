@@ -83,6 +83,10 @@ const addToastProps = [
   { name: "type", type: '"success" | "error" | "warning" | "info"', default: "—", required: true, description: 'The semantic type of the toast which determines its color scheme and icon. "success" is green, "error" is red, "warning" is yellow/amber, and "info" is blue.' },
   { name: "message", type: "string", default: "—", required: true, description: "The text content displayed inside the toast notification." },
   { name: "duration", type: "number", default: "—", description: "Optional override for how long this specific toast stays visible (in milliseconds). Falls back to the provider's defaultDuration if not specified." },
+  { name: "className", type: "string", default: "—", description: "Custom Tailwind classes applied to the toast container. Use ! (important) prefix to override default styles, e.g. \"!bg-purple-600 !border-purple-500\"." },
+  { name: "style", type: "object", default: "—", description: "Inline style object applied to the toast container, e.g. { backgroundColor: '#7c3aed' }." },
+  { name: "titleClassName", type: "string", default: "—", description: "Custom Tailwind classes applied to the toast title text, e.g. \"!text-white !text-base\"." },
+  { name: "messageClassName", type: "string", default: "—", description: "Custom Tailwind classes applied to the toast message text, e.g. \"!text-purple-100\"." },
 ];
 
 export default function ToastPage() {
@@ -226,6 +230,43 @@ addToast({ type: "info", message: "Stays for 8 seconds.", duration: 8000 });`}
         </Preview>
       </Section>
 
+      {/* Custom Styling */}
+      <Section title="Custom Styling">
+        <p className="text-gray-600 dark:text-gray-400">
+          Customise individual toast appearance with{" "}
+          <code className="text-sm bg-gray-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded font-mono">className</code>,{" "}
+          <code className="text-sm bg-gray-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded font-mono">style</code>,{" "}
+          <code className="text-sm bg-gray-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded font-mono">titleClassName</code>, and{" "}
+          <code className="text-sm bg-gray-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded font-mono">messageClassName</code>.
+          Use the <code className="text-sm bg-gray-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded font-mono">!</code> (important) prefix on Tailwind classes to override defaults.
+        </p>
+        <Preview
+          code={`// Custom background with Tailwind classes
+addToast({
+  type: "success",
+  title: "Custom Background",
+  message: "Purple gradient toast.",
+  className: "!bg-gradient-to-r !from-purple-600 !to-indigo-600 !border-purple-500",
+  titleClassName: "!text-white",
+  messageClassName: "!text-purple-100",
+});
+
+// Custom background with inline style
+addToast({
+  type: "info",
+  title: "Inline Style",
+  message: "Using the style prop.",
+  style: { backgroundColor: "#1e293b", borderColor: "#334155" },
+  titleClassName: "!text-cyan-300",
+  messageClassName: "!text-slate-300",
+});`}
+        >
+          <ToastProvider variant="modern" position="top-right">
+            <CustomStyleDemo />
+          </ToastProvider>
+        </Preview>
+      </Section>
+
       {/* Props */}
       <Section title="ToastProvider Props">
         <PropsTable props={providerProps} />
@@ -273,5 +314,58 @@ function AlertDemo() {
     >
       Trigger Alert
     </button>
+  );
+}
+
+function CustomStyleDemo() {
+  const { addToast } = useToast();
+  return (
+    <div className="flex flex-wrap gap-3">
+      <button
+        onClick={() =>
+          addToast({
+            type: "success",
+            title: "Custom Background",
+            message: "This toast has a purple gradient background.",
+            className: "!bg-gradient-to-r !from-purple-600 !to-indigo-600 !border-purple-500",
+            titleClassName: "!text-white",
+            messageClassName: "!text-purple-100",
+          })
+        }
+        className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm font-medium"
+      >
+        Purple Gradient
+      </button>
+      <button
+        onClick={() =>
+          addToast({
+            type: "info",
+            title: "Inline Style",
+            message: "Using the style prop for a custom background color.",
+            style: { backgroundColor: "#1e293b", borderColor: "#334155" },
+            titleClassName: "!text-cyan-300",
+            messageClassName: "!text-slate-300",
+          })
+        }
+        className="px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-800 transition-colors text-sm font-medium"
+      >
+        Inline Style
+      </button>
+      <button
+        onClick={() =>
+          addToast({
+            type: "warning",
+            title: "Brand Toast",
+            message: "Match your brand colours with custom classes.",
+            className: "!bg-orange-500 !border-orange-400",
+            titleClassName: "!text-white !text-base",
+            messageClassName: "!text-orange-100",
+          })
+        }
+        className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors text-sm font-medium"
+      >
+        Brand Colors
+      </button>
+    </div>
   );
 }
