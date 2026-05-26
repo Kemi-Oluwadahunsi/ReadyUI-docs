@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Outlet, Link, useLocation } from "react-router-dom";
 import Sidebar from "./Sidebar";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import SearchDialog from "./SearchDialog";
+import { Menu, X, Sun, Moon, Search } from "lucide-react";
 
 const GithubIcon = ({ className }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -11,14 +12,31 @@ const GithubIcon = ({ className }) => (
 
 export default function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [dark, setDark] = useState(() => document.documentElement.classList.contains("dark"));
   const location = useLocation();
+  const prevPathRef = useRef(location.pathname);
 
   // Close mobile sidebar on route change
   useEffect(() => {
-    setSidebarOpen(false);
-    window.scrollTo(0, 0);
+    if (prevPathRef.current !== location.pathname) {
+      prevPathRef.current = location.pathname;
+      setSidebarOpen(false);
+      window.scrollTo(0, 0);
+    }
   }, [location.pathname]);
+
+  // ⌘K / Ctrl+K shortcut
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setSearchOpen((prev) => !prev);
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const toggleTheme = () => {
     const next = !dark;
@@ -47,6 +65,16 @@ export default function Layout() {
           </span>
         </div>
         <div className="flex items-center gap-2">
+          <button
+            onClick={() => setSearchOpen(true)}
+            className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-zinc-700 hover:bg-gray-50 dark:hover:bg-zinc-800 text-gray-500 dark:text-gray-400 text-sm transition-colors"
+          >
+            <Search className="w-4 h-4" />
+            <span className="hidden sm:inline">Search...</span>
+            <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 text-[10px] font-medium text-gray-400 border border-gray-200 dark:border-zinc-700 rounded ml-1">
+              ⌘K
+            </kbd>
+          </button>
           <a
             href="https://github.com/Kemi-Oluwadahunsi/ReadyToUse-React-Components"
             target="_blank"
@@ -63,6 +91,8 @@ export default function Layout() {
           </button>
         </div>
       </header>
+
+      <SearchDialog open={searchOpen} onClose={() => setSearchOpen(false)} />
 
       <div className="flex flex-1">
         {/* Sidebar */}

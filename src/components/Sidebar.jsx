@@ -21,7 +21,7 @@ export default function Sidebar({ open, onClose }) {
       )}
 
       <aside
-        className={`fixed lg:sticky top-14 z-30 h-[calc(100vh-3.5rem)] w-64 flex-shrink-0 overflow-y-auto border-r border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 transition-transform lg:translate-x-0 ${
+        className={`fixed lg:sticky top-14 z-30 h-[calc(100vh-3.5rem)] w-64 shrink-0 overflow-y-auto border-r border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 transition-transform lg:translate-x-0 ${
           open ? "translate-x-0" : "-translate-x-full"
         }`}
       >

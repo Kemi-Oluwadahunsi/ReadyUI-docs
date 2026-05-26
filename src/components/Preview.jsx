@@ -62,13 +62,13 @@ export default function Preview({ children, code, title, className = "" }) {
       {/* Content */}
       {tab === "preview" ? (
         <div
-          className="p-6 sm:p-8 bg-white dark:bg-zinc-900/50 min-h-[120px] flex items-start rounded-b-xl"
+          className="p-6 sm:p-8 bg-white dark:bg-zinc-900/50 min-h-30 flex items-start rounded-b-xl"
         >
           <div className="w-full">{children}</div>
         </div>
       ) : (
         <div className="overflow-x-auto rounded-b-xl">
-          <pre className="!m-0 !rounded-none text-sm">
+          <pre className="m-0 rounded-none text-sm">
             <code
               className="language-jsx"
               dangerouslySetInnerHTML={{
