@@ -10,6 +10,15 @@
   --color-primary-dark: #2563eb;
 }
 
+@keyframes rui-fade-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.rui-animate-fade-in {
+  animation: rui-fade-in 0.5s ease forwards;
+}
+
 html {
   scroll-behavior: smooth;
 }
