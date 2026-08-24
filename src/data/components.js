@@ -19,6 +19,8 @@ export const categories = [
   {
     name: "Inputs & Forms",
     components: [
+      { name: "AIPromptInput", path: "/components/ai-prompt-input", description: "AI chat input with model selector and attachments" },
+      { name: "AuthForm", path: "/components/auth-form", description: "Pre-built authentication form with social login" },
       { name: "ColorPicker", path: "/components/color-picker", description: "HSL/RGB/HEX picker with saturation pad" },
       { name: "DatePicker", path: "/components/date-picker", description: "Calendar dropdown with single/multiple/range selection" },
       { name: "FileUploader", path: "/components/file-uploader", description: "Drag-and-drop file upload with previews" },
@@ -39,7 +41,10 @@ export const categories = [
       { name: "AvatarGroup", path: "/components/avatar-group", description: "Stacked avatars with +N overflow" },
       { name: "Badge", path: "/components/badge", description: "Count/status indicator for any element" },
       { name: "Cards", path: "/components/cards", description: "Collection of 15 card variants" },
+      { name: "Charts", path: "/components/charts", description: "Bar chart and sparkline for dashboards" },
       { name: "DataTable", path: "/components/data-table", description: "Sortable, filterable, paginated table" },
+      { name: "KPICard", path: "/components/kpi-card", description: "Financial dashboard cards with progress tracking" },
+      { name: "LiveCursors", path: "/components/live-cursors", description: "Animated collaborative presence cursors" },
       { name: "Marquee", path: "/components/marquee", description: "Auto-scrolling content strip" },
       { name: "Pagination", path: "/components/pagination", description: "Page navigation with ellipsis and jump-to" },
       { name: "Skeleton", path: "/components/skeleton", description: "Content placeholder with animations" },
@@ -69,6 +74,7 @@ export const categories = [
       { name: "HoverRevealCard", path: "/components/hover-reveal-card", description: "Card with hover-activated overlay" },
       { name: "ImageCropper", path: "/components/image-cropper", description: "Drag-to-crop with zoom and rotation" },
       { name: "InfiniteScroll", path: "/components/infinite-scroll", description: "Scroll-triggered data loading" },
+      { name: "QRCodeCard", path: "/components/qr-code-card", description: "QR code display with copy and share actions" },
       { name: "ScrollCarousel", path: "/components/scroll-carousel", description: "Responsive carousel with auto-scroll" },
       { name: "SortableList", path: "/components/sortable-list", description: "Drag-and-drop reorderable list" },
     ],
@@ -77,7 +83,9 @@ export const categories = [
     name: "Utilities",
     components: [
       { name: "CommandPalette", path: "/components/command-palette", description: "⌘K spotlight-style search overlay" },
+      { name: "CodeBlock", path: "/components/code-block", description: "Styled code display with copy button" },
       { name: "DarkModeToggle", path: "/components/dark-mode-toggle", description: "Theme toggle for light/dark/system" },
+      { name: "PricingTable", path: "/components/pricing-table", description: "Responsive pricing tiers with billing toggle" },
     ],
   },
 ];

@@ -8,11 +8,15 @@ import GettingStarted from "./pages/GettingStarted";
 
 // Lazy-loaded component doc pages
 const AccordionPage = lazy(() => import("./pages/components/AccordionPage"));
+const AIPromptInputPage = lazy(() => import("./pages/components/AIPromptInputPage"));
 const AnimatedCounterPage = lazy(() => import("./pages/components/AnimatedCounterPage"));
+const AuthFormPage = lazy(() => import("./pages/components/AuthFormPage"));
 const AvatarGroupPage = lazy(() => import("./pages/components/AvatarGroupPage"));
 const BadgePage = lazy(() => import("./pages/components/BadgePage"));
 const BreadcrumbsPage = lazy(() => import("./pages/components/BreadcrumbsPage"));
 const CardsPage = lazy(() => import("./pages/components/CardsPage"));
+const ChartsPage = lazy(() => import("./pages/components/ChartsPage"));
+const CodeBlockPage = lazy(() => import("./pages/components/CodeBlockPage"));
 const ColorPickerPage = lazy(() => import("./pages/components/ColorPickerPage"));
 const CommandPalettePage = lazy(() => import("./pages/components/CommandPalettePage"));
 const ConfirmDialogPage = lazy(() => import("./pages/components/ConfirmDialogPage"));
@@ -29,6 +33,8 @@ const HoverRevealCardPage = lazy(() => import("./pages/components/HoverRevealCar
 const ImageCropperPage = lazy(() => import("./pages/components/ImageCropperPage"));
 const InfiniteScrollPage = lazy(() => import("./pages/components/InfiniteScrollPage"));
 const KanbanBoardPage = lazy(() => import("./pages/components/KanbanBoardPage"));
+const KPICardPage = lazy(() => import("./pages/components/KPICardPage"));
+const LiveCursorsPage = lazy(() => import("./pages/components/LiveCursorsPage"));
 const MarqueePage = lazy(() => import("./pages/components/MarqueePage"));
 const ModalPage = lazy(() => import("./pages/components/ModalPage"));
 const MultiSelectTagInputPage = lazy(() => import("./pages/components/MultiSelectTagInputPage"));
@@ -37,6 +43,7 @@ const OTPInputPage = lazy(() => import("./pages/components/OTPInputPage"));
 const PaginationPage = lazy(() => import("./pages/components/PaginationPage"));
 const PasswordStrengthPage = lazy(() => import("./pages/components/PasswordStrengthPage"));
 const PopoverPage = lazy(() => import("./pages/components/PopoverPage"));
+const PricingTablePage = lazy(() => import("./pages/components/PricingTablePage"));
 const ProgressBarStepsPage = lazy(() => import("./pages/components/ProgressBarStepsPage"));
 const RangeSliderPage = lazy(() => import("./pages/components/RangeSliderPage"));
 const RatingInputPage = lazy(() => import("./pages/components/RatingInputPage"));
@@ -45,6 +52,7 @@ const ScrollAwareNavbarPage = lazy(() => import("./pages/components/ScrollAwareN
 const ScrollCarouselPage = lazy(() => import("./pages/components/ScrollCarouselPage"));
 const SearchBarPage = lazy(() => import("./pages/components/SearchBarPage"));
 const SelectPage = lazy(() => import("./pages/components/SelectPage"));
+const QRCodeCardPage = lazy(() => import("./pages/components/QRCodeCardPage"));
 const SkeletonPage = lazy(() => import("./pages/components/SkeletonPage"));
 const SortableListPage = lazy(() => import("./pages/components/SortableListPage"));
 const SpinnerPage = lazy(() => import("./pages/components/SpinnerPage"));
@@ -75,11 +83,15 @@ export default function App() {
 
         {/* Component routes — lazy loaded */}
         <Route path="components/accordion" element={<Suspense fallback={<PageLoader />}><AccordionPage /></Suspense>} />
+        <Route path="components/ai-prompt-input" element={<Suspense fallback={<PageLoader />}><AIPromptInputPage /></Suspense>} />
         <Route path="components/animated-counter" element={<Suspense fallback={<PageLoader />}><AnimatedCounterPage /></Suspense>} />
+        <Route path="components/auth-form" element={<Suspense fallback={<PageLoader />}><AuthFormPage /></Suspense>} />
         <Route path="components/avatar-group" element={<Suspense fallback={<PageLoader />}><AvatarGroupPage /></Suspense>} />
         <Route path="components/badge" element={<Suspense fallback={<PageLoader />}><BadgePage /></Suspense>} />
         <Route path="components/breadcrumbs" element={<Suspense fallback={<PageLoader />}><BreadcrumbsPage /></Suspense>} />
         <Route path="components/cards" element={<Suspense fallback={<PageLoader />}><CardsPage /></Suspense>} />
+        <Route path="components/charts" element={<Suspense fallback={<PageLoader />}><ChartsPage /></Suspense>} />
+        <Route path="components/code-block" element={<Suspense fallback={<PageLoader />}><CodeBlockPage /></Suspense>} />
         <Route path="components/color-picker" element={<Suspense fallback={<PageLoader />}><ColorPickerPage /></Suspense>} />
         <Route path="components/command-palette" element={<Suspense fallback={<PageLoader />}><CommandPalettePage /></Suspense>} />
         <Route path="components/confirm-dialog" element={<Suspense fallback={<PageLoader />}><ConfirmDialogPage /></Suspense>} />
@@ -96,6 +108,8 @@ export default function App() {
         <Route path="components/image-cropper" element={<Suspense fallback={<PageLoader />}><ImageCropperPage /></Suspense>} />
         <Route path="components/infinite-scroll" element={<Suspense fallback={<PageLoader />}><InfiniteScrollPage /></Suspense>} />
         <Route path="components/kanban-board" element={<Suspense fallback={<PageLoader />}><KanbanBoardPage /></Suspense>} />
+        <Route path="components/kpi-card" element={<Suspense fallback={<PageLoader />}><KPICardPage /></Suspense>} />
+        <Route path="components/live-cursors" element={<Suspense fallback={<PageLoader />}><LiveCursorsPage /></Suspense>} />
         <Route path="components/marquee" element={<Suspense fallback={<PageLoader />}><MarqueePage /></Suspense>} />
         <Route path="components/modal" element={<Suspense fallback={<PageLoader />}><ModalPage /></Suspense>} />
         <Route path="components/multi-select-tag-input" element={<Suspense fallback={<PageLoader />}><MultiSelectTagInputPage /></Suspense>} />
@@ -104,6 +118,7 @@ export default function App() {
         <Route path="components/pagination" element={<Suspense fallback={<PageLoader />}><PaginationPage /></Suspense>} />
         <Route path="components/password-strength" element={<Suspense fallback={<PageLoader />}><PasswordStrengthPage /></Suspense>} />
         <Route path="components/popover" element={<Suspense fallback={<PageLoader />}><PopoverPage /></Suspense>} />
+        <Route path="components/pricing-table" element={<Suspense fallback={<PageLoader />}><PricingTablePage /></Suspense>} />
         <Route path="components/progress-bar-steps" element={<Suspense fallback={<PageLoader />}><ProgressBarStepsPage /></Suspense>} />
         <Route path="components/range-slider" element={<Suspense fallback={<PageLoader />}><RangeSliderPage /></Suspense>} />
         <Route path="components/rating-input" element={<Suspense fallback={<PageLoader />}><RatingInputPage /></Suspense>} />
@@ -112,6 +127,7 @@ export default function App() {
         <Route path="components/scroll-carousel" element={<Suspense fallback={<PageLoader />}><ScrollCarouselPage /></Suspense>} />
         <Route path="components/search-bar" element={<Suspense fallback={<PageLoader />}><SearchBarPage /></Suspense>} />
         <Route path="components/select" element={<Suspense fallback={<PageLoader />}><SelectPage /></Suspense>} />
+        <Route path="components/qr-code-card" element={<Suspense fallback={<PageLoader />}><QRCodeCardPage /></Suspense>} />
         <Route path="components/skeleton" element={<Suspense fallback={<PageLoader />}><SkeletonPage /></Suspense>} />
         <Route path="components/sortable-list" element={<Suspense fallback={<PageLoader />}><SortableListPage /></Suspense>} />
         <Route path="components/spinner" element={<Suspense fallback={<PageLoader />}><SpinnerPage /></Suspense>} />
